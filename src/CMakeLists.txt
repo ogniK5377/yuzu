@@ -18,6 +18,9 @@ if (MSVC)
     # Avoid windows.h from including some usually unused libs like winsocks.h, since this might cause some redefinition errors.
     add_definitions(-DWIN32_LEAN_AND_MEAN)
 
+    # Boost asio concepts are not yet supported in MSVC so we disable the use of them.
+    add_definitions(-DBOOST_ASIO_DISABLE_CONCEPTS)
+
     # Ensure that projects build with Unicode support.
     add_definitions(-DUNICODE -D_UNICODE)
 
